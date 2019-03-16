@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
         .then(books => (res.json(books)))
 })
 
-router.post("/api/books", (req, res) => {
+router.post("/", (req, res) => {
     const newBook = new Book ({
         title: req.body.title,
         authors: req.body.authors,

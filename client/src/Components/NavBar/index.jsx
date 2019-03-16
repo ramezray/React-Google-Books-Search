@@ -5,9 +5,9 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <span className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Google Books
-        </span>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,10 +22,15 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+              <a className="nav-link" href="books">
+                Search Books
+              </a>
+            </li>
             <li className="nav-item">
-              <span className="nav-link" href="#">
+              <a className="nav-link" href="SavedBooks">
                 Saved Books
-              </span>
+              </a>
             </li>
           </ul>
         </div>

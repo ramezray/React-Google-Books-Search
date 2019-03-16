@@ -11,35 +11,77 @@ class SavedBooks extends Component {
     API.getSavedBooks()
       .then(res =>
         this.setState({
-          books: res.data
+          saveBooks: res.data
         })
       )
       .catch(err => console.log(err));
   };
+  handleBookDelete = id => {
+    API.deleteBook(id).then(res => this.getSavedBooks());
+  };
+
 
   render() {
     
     return (
-      <div>
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container">
-            <h1 className="display-4">Saved Books</h1>
+      <div className="jumbotron jumbotron-fluid container card text-white bg-primary mb-3 p-3">
+        <h4 className="display-4">Saved Books</h4>
             <div className="card">
               {this.state.saveBooks.map(book =>(
-                <div>
-                  key={book._id}
-                      title={book.title}
-                      subtitle={book.subtitle}
-                      link={book.link}
-                      authors={book.authors.join(", ")}
-                      description={book.description}
-                      image={book.image}
-                </div>
+                <div
+                className="card p-2 mb-4 text-primary"
+                key={book._id}
+              >
+                <span>
+                  <h5 className="font-weight-bold ">
+                    <u>Title:</u> {book.title}
+                  </h5>
+                </span>
+                <span>
+                  <h5 className="font-weight-bold ">
+                    <u>Authors:</u> {book.authors}
+                  </h5>
+                </span>
+                <span>
+                  <h5 className="font-weight-bold ">
+                    <u>Description:</u>
+                  </h5>
+                  {book.description}
+                </span>
+                <span>
+                  <img
+                    src={book.image}
+                    className="card-img-top col-3"
+                    alt={book.title}
+                    width="2px"
+                    height="200px"
+                  />
+                </span>
+                <span>
+                  <a
+                    href={book.link}
+                    className="font-weight-bold "
+                    // target="_blank"
+                  >
+                    Click Here for Book Link
+                  </a>
+                </span>
+                <button className="btn btn-danger my-2 my-sm-0 float-right" onClick={() => this.handleBookDelete(book._id)}>
+                  Delete
+                </button>
+              </div>
+                // <div>
+                //       key={book._id}
+                //       title={book.title}
+                //       subtitle={book.subtitle}
+                //       link={book.link}
+                //       authors={book.authors}
+                //       description={book.description}
+                //       image={book.image}
+                // </div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "React-Google-Books-Search",
   "version": "1.0.0",
-  "main": "node server.js",
+  "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "prod": "node server.js",

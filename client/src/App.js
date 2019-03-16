@@ -19,7 +19,7 @@ render() {
         <NavBar />
         <Header />
         <Switch>
-          <Route exact path="/" component={SearchBooks} />
+          <Route exact path="/books" component={SearchBooks} />
           <Route exact path="/books" component={SearchBooks} />
           <Route exact path="/Savedbooks" component={SavedBooks} />
           <Route component={NoMatch} />

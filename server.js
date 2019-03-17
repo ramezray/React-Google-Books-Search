@@ -8,7 +8,9 @@ const app = express();
 
 app.use(bodyParser.json());
 const db = require("./config/Keys").mongoURI;
-
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 mongoose
     .connect(db)
     .then(()=> console.log("mongoDB Connected......"))

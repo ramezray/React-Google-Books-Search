@@ -61,7 +61,7 @@ class SavedBooks extends Component {
                   <a
                     href={book.link}
                     className="font-weight-bold "
-                    // target="_blank"
+                    target="_blank"
                   >
                     Click Here for Book Link
                   </a>
@@ -70,15 +70,6 @@ class SavedBooks extends Component {
                   Delete
                 </button>
               </div>
-                // <div>
-                //       key={book._id}
-                //       title={book.title}
-                //       subtitle={book.subtitle}
-                //       link={book.link}
-                //       authors={book.authors}
-                //       description={book.description}
-                //       image={book.image}
-                // </div>
               ))}
             </div>
           </div>

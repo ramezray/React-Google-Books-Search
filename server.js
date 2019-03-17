@@ -11,6 +11,15 @@ app.use(bodyParser.json());
 const db = require("./config/Keys").mongoURI;
 
 
+
+
+mongoose
+    .connect(db)
+    .then(()=> console.log("mongoDB Connected......"))
+    .catch(err => console.log(err));
+
+app.use("/api/books", books)
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
   }
@@ -18,13 +27,6 @@ if (process.env.NODE_ENV === "production") {
   app.get('*', (req, res) => {
 	res.sendFile(path.resolve(__dirname, 'client','build', 'index.html'));
 });
-
-mongoose
-    .connect(db)
-    .then(()=> console.log("mongoDB Connected......"))
-    .catch(err => console.log(err));
-
-app.use("/api/books/", books)
 
 const port = process.env.PORT ||3001;
 

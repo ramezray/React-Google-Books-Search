@@ -61,7 +61,7 @@ class SavedBooks extends Component {
                   <a
                     href={book.link}
                     className="font-weight-bold "
-                    target="_blank"
+                    // target="_blank"
                   >
                     Click Here for Book Link
                   </a>

@@ -64,7 +64,7 @@ class SearchBooks extends Component {
                     description: books.volumeInfo.description,
                     image: books.volumeInfo.imageLinks.thumbnail,
                     link: books.volumeInfo.infoLink
-                  }).then(alert("Book is Saved"));
+                  }).then(alert("Book is Saved, Go to Saved Books to see all Saved books"));
                 }}
               >
                 Save
